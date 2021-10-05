@@ -1,8 +1,8 @@
 <script>
-  import Header from "$lib/header.svelte"
+	import Header from '$lib/header.svelte'
 </script>
 
 <Header />
 <main>
-  <slot />
+	<slot />
 </main>

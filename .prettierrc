@@ -2,7 +2,8 @@
 	"useTabs": true,
 	"singleQuote": true,
 	"trailingComma": "es5",
-	"printWidth": 70,
+	"printWidth": 80,
 	"arrowParens": "always",
-	"proseWrap": "preserve"
+	"proseWrap": "preserve",
+	"semi": false
 }

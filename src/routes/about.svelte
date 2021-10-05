@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>About | SpaceX Explorers</title>
+	<title>About | SpaceX Explorers</title>
 </svelte:head>
 
 <h1>About</h1>
