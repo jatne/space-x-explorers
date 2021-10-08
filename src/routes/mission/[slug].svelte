@@ -1,57 +1,15 @@
 <script context="module">
-	import { gql, GraphQLClient } from 'graphql-request'
-
-	export async function load({ page: { params } }) {
+	export async function load({ fetch, page: { params } }) {
 		const { slug } = params
-		const endpoint =
-			'https://api-eu-central-1.graphcms.com/v2/ckucohqd967ef01yz8cfm64gp/master'
-		const graphCmsClient = new GraphQLClient(endpoint, { headers: {} })
+		const res = await fetch(`/mission/${slug}.json`)
 
-		const query = gql`
-			query GetMission($slug: String!) {
-				mission: launch(where: { slug: $slug }) {
-					year
-					date
-					name
-					launchSuccess
-					rocket {
-						name
-						type
-						image {
-							fileName
-							url(
-								transformation: {
-									image: { resize: { width: 500, height: 500, fit: clip } }
-								}
-							)
-						}
-					}
-					launchSite {
-						name
-						longName
-					}
-					link {
-						article
-						pressKit
-						video
-						wikipedia
-						flickrImages {
-							url(
-								transformation: {
-									image: { resize: { fit: clip, height: 500, width: 500 } }
-								}
-							)
-						}
-					}
-				}
+		if (res.ok) {
+			const { mission } = await res.json()
+			return {
+				props: {
+					mission,
+				},
 			}
-		`
-
-		const variables = { slug }
-		const { mission } = await graphCmsClient.request(query, variables)
-
-		return {
-			props: { mission },
 		}
 	}
 </script>
