@@ -2,6 +2,6 @@
 	<title>About | SpaceX Explorers</title>
 </svelte:head>
 
-<h1>About</h1>
+<h1 class="text-4xl mb-8">About</h1>
 
-<p>Built with SvelteKit</p>
+<p class="text-xl mb-8">Built with SvelteKit x GraphCMS x Tailwind x DaisyUI</p>

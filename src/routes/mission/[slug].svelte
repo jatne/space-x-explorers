@@ -24,7 +24,7 @@
 
 <article>
 	<h1>{name}</h1>
-	<time>{date}</time>
+	<time class="text-sm mb-4 block">{date}</time>
 	{#if launchSuccess}
 		<p>Launched successfully</p>
 	{:else}
@@ -32,7 +32,7 @@
 	{/if}
 	<p><strong>Launch site: </strong>{launchSite.longName}</p>
 	<p><strong>Launch site short name: </strong>{launchSite.name}</p>
-	<section>
+	<section class="py-5">
 		<h2>Links:</h2>
 		<ul>
 			{#if link.article}
@@ -66,3 +66,27 @@
 	<h3>Rocket Name: {rocket.name}, type: {rocket.type}</h3>
 	<img src={rocket.image.url} alt={rocket.name} />
 </article>
+
+<style lang="postcss">
+	p {
+		@apply text-xl;
+		@apply mb-2;
+	}
+
+	h1 {
+		@apply text-4xl;
+	}
+
+	h2 {
+		@apply text-3xl;
+	}
+
+	h3 {
+		@apply text-4xl;
+	}
+	h1,
+	h2,
+	h3 {
+		@apply my-5;
+	}
+</style>
