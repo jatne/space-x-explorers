@@ -1,4 +1,6 @@
 <script context="module">
+	export const prerender = true
+
 	export async function load({ fetch, page: { params } }) {
 		const { slug } = params
 		const res = await fetch(`/mission/${slug}.json`)

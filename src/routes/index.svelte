@@ -1,4 +1,6 @@
 <script context="module">
+	export const prerender = true
+
 	export async function load({ fetch }) {
 		const res = await fetch('/launches.json')
 
@@ -24,7 +26,7 @@
 <ul>
 	{#each launches as { slug, name, date }}
 		<li>
-			<a href={`/mission/${slug}`}>
+			<a sveltekit:prefetch href={`/mission/${slug}`}>
 				<h2>{name}</h2>
 				<time>{date}</time>
 			</a>
